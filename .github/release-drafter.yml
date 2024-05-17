@@ -2,6 +2,7 @@ template: |
   $CHANGES
 name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
+change-template: '- $TITLE by @$AUTHOR in #$NUMBER'
 categories:
   - title: '💥 Breaking Changes'
     labels:
@@ -23,6 +24,8 @@ categories:
       - 'changelog:chore'
       - 'changelog:ci'
       - 'changelog:dependency'
+exclude-labels:
+  - 'changelog:skip'
 version-resolver:
   major:
     labels:
