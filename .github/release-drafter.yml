@@ -1,6 +1,6 @@
 template: |
   $CHANGES
-name-template: 'v$RESOLVED_VERSION'
+name-template: 'oblt-actions v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 change-template: '- $TITLE by @$AUTHOR in #$NUMBER'
 categories:
@@ -10,12 +10,10 @@ categories:
   - title: '🚀 Features'
     labels:
       - 'changelog:feature'
+      - 'changelog:enhancement'
   - title: '🐞 Bug Fixes'
     labels:
       - 'changelog:fix'
-  - title: '✨ Enhancements'
-    labels:
-      - 'changelog:enhancement'
   - title: '📖 Documentation'
     labels:
       - 'changelog:docs'
@@ -23,7 +21,7 @@ categories:
     labels:
       - 'changelog:chore'
       - 'changelog:ci'
-      - 'changelog:dependency'
+      - 'changelog:dependencies'
 exclude-labels:
   - 'changelog:skip'
 version-resolver:
