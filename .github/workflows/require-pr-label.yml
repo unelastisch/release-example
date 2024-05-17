@@ -15,12 +15,13 @@ jobs:
       - uses: actions/checkout@v4
       - id: get-labels
         run: |
-          labels=$(yq '[.categories[].labels] | flatten | unique | sort | @tsv' .github/release-drafter.yml | tr '\t' '\n')
+          labels=$(yq '[.categories[].labels] | flatten | unique | sort | @tsv' .github/release-drafter.yml | tr '\t' ',')
           echo "labels=$labels" >> "${GITHUB_OUTPUT}"
       - id: check-labels
         uses: mheap/github-action-required-labels@5847eef68201219cf0a4643ea7be61e77837bbce # v5.4.1
         with:
           mode: minimum
           count: 1
+          use_regex: false
           labels: |
             ${{ steps.get-labels.outputs.labels }}
