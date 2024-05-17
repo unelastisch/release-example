@@ -23,5 +23,4 @@ jobs:
           mode: minimum
           count: 1
           use_regex: false
-          labels: |
-            ${{ steps.get-labels.outputs.labels }}
+          labels: ${{ steps.get-labels.outputs.labels }}
