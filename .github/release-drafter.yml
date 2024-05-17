@@ -1,3 +1,6 @@
+template: |
+  $CHANGES
+
 categories:
   - title: '💥 Breaking Changes'
     labels:
