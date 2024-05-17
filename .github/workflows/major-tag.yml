@@ -1,0 +1,23 @@
+name: major-tag
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
+
+jobs:
+  create-major-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get major version
+        run: |
+          MAJOR_VERSION=$(echo "${GITHUB_REF#refs/tags/v}"" | awk -F. '{print $1}')
+          echo "MAJOR_VERSION=v${MAJOR_VERSION}" >> "${GITHUB_ENV}"
+      - name: Create major tag
+        run: |
+          git tag "${MAJOR_VERSION}"
+          git push -f origin "refs/tags/${MAJOR_VERSION}"
