@@ -26,7 +26,7 @@ jobs:
       - id: check-labels
         uses: mheap/github-action-required-labels@5847eef68201219cf0a4643ea7be61e77837bbce # v5.4.1
         with:
-          mode: minimum
+          mode: exactly
           count: 1
           use_regex: false
           add_comment: true
